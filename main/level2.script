@@ -1,0 +1,12 @@
+-- =================================================================================================
+-- Defold Tutorial #9 - Intro to Levels, Messages and Menus
+-- level2.script
+-- =================================================================================================
+
+function on_message(self, message_id, message, sender)
+	-- Upon receipt of a 'start_level2' message (sent from the main.collection) -
+	-- the GUI controls are displayed
+	if message_id == hash("start_level2") then
+		msg.post("controls#gui", "show")	
+	end
+end

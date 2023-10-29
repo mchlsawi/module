@@ -1,0 +1,113 @@
+images {
+  image: "/main/images/button1.png"
+}
+images {
+  image: "/main/images/button1s.png"
+}
+images {
+  image: "/main/images/city.png"
+}
+images {
+  image: "/main/images/forest.png"
+}
+images {
+  image: "/main/images/exit_66x66.png"
+}
+images {
+  image: "/main/images/left_66x66.png"
+}
+images {
+  image: "/main/images/right_66x66.png"
+}
+images {
+  image: "/main/images/menuPanel.png"
+}
+images {
+  image: "/main/images/levelButton.png"
+}
+images {
+  image: "/main/images/levelButtonT.png"
+}
+animations {
+  id: "wizardWalk"
+  images {
+    image: "/main/images/Wizard_walk_1.png"
+  }
+  images {
+    image: "/main/images/Wizard_walk_2.png"
+  }
+  images {
+    image: "/main/images/Wizard_walk_3.png"
+  }
+  images {
+    image: "/main/images/Wizard_walk_4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 4
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "wizardIdle"
+  images {
+    image: "/main/images/Wizard_idle_1.png"
+  }
+  images {
+    image: "/main/images/Wizard_idle_2.png"
+  }
+  images {
+    image: "/main/images/Wizard_idle_3.png"
+  }
+  images {
+    image: "/main/images/Wizard_idle_4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 4
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "monkeyHop"
+  images {
+    image: "/main/images/monkey_armsup.png"
+  }
+  images {
+    image: "/main/images/monkey_armsup_happy.png"
+  }
+  images {
+    image: "/main/images/monkey_faceforward.png"
+  }
+  images {
+    image: "/main/images/monkey_armsup_happy.png"
+  }
+  images {
+    image: "/main/images/monkey_armsup.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 6
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "releasedButton"
+  images {
+    image: "/main/images/redTestButton.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 3
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "pressedButton2"
+  images {
+    image: "/main/images/redTestButton3.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 3
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+margin: 0
+extrude_borders: 1
+inner_padding: 0

@@ -1,0 +1,21 @@
+[project]
+title = 6 - Initial Menu and Level Procedures
+version = 0.1
+
+[bootstrap]
+main_collection = /main/main.collectionc
+render = /builtins/render/default.renderc
+
+[input]
+game_binding = /input/game.input_bindingc
+
+[display]
+width = 1024
+height = 768
+
+[physics]
+scale = 0.02
+
+[script]
+shared_state = 1
+

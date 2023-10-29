@@ -1,0 +1,68 @@
+-- =================================================================================================
+-- Defold Tutorial #9 - Intro to Levels, Messages and Menus
+-- main.script
+-- =================================================================================================
+
+-- Initialization ----------------------------------------------------------------------------------
+function init(self)	
+	-- Set the main menu as the starting Game Level for this application
+	msg.post(".", "to_main_menu")
+	self.state = "MAIN_MENU"
+end
+
+-- Message Processing ------------------------------------------------------------------------------
+function on_message(self, message_id, message, sender)
+	
+	if message_id == hash("to_main_menu") then
+
+		if self.state ~= "MAIN_MENU" then
+			-- Upon receipt of a 'to_main_menu' message -- ensure that the 
+			-- Level1 and Level2 collections are unloaded		
+			if self.state == "GAME1_RUNNING" then
+				msg.post("#level1_proxy", "unload")
+			end
+			
+			if self.state == "GAME2_RUNNING" then
+				msg.post("#level2_proxy", "unload")
+			end
+		end
+
+		-- Enable both the Main Menu and the Menu Panel Background
+		msg.post("main:/main#menu", "enable")
+		msg.post("#menu_panel", "enable")
+		self.state = "MAIN_MENU"
+		
+	elseif message_id == hash("start_level1") then
+		-- When switching to the Level1 Collection -- disable the Menu Panel Background and
+		-- the Menu; and load the Level1 Collection
+		msg.post("#menu_panel", "disable")
+		msg.post("#level1_proxy", "load")
+		msg.post("#menu", "disable")
+		
+	elseif message_id == hash("start_level2") then
+		-- When switching to the Level2 Collection -- disable the Menu Panel Background and
+		-- the Menu; and load the Level2 Collection
+		msg.post("#menu_panel", "disable")
+		msg.post("#level2_proxy", "load")
+		msg.post("#menu", "disable")	
+		
+	elseif message_id == hash("proxy_loaded") then
+		-- Upon confirmation that the collection has been loaded -- post messages to 
+		-- set the current state, enable the level and initiate it
+
+			if sender == msg.url("#level1_proxy") then
+				msg.post(sender, "init")
+				msg.post(sender, "start_level1")
+				msg.post(sender, "enable")
+				self.state = "GAME1_RUNNING"
+			end
+			
+			if sender == msg.url("#level2_proxy") then
+				msg.post(sender, "init")
+				msg.post(sender, "start_level2")
+				msg.post(sender, "enable")
+				self.state = "GAME2_RUNNING"
+			end
+
+	end    
+end
